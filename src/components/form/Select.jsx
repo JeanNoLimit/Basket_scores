@@ -15,10 +15,9 @@ export function Select({nbJournee, onChange }) {
             onChange={(e)=> onChange(e.target.value)}
             id="floatingSelect"
             >
-            <option defaultValue> Selection...</option>
             {getOptions()}
         </select>
-        <label className="" for="floatingSelect"> Selectionnez une journée : </label>
+        <label className="" htmlFor="floatingSelect"> Selectionnez une journée : </label>
         
     </div>
 }
