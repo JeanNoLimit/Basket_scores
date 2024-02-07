@@ -25,7 +25,7 @@ function App() {
         try { 
           const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=French%20LNB`)
           await response.json().then((json) => {
-            setTeams(json); 
+            setTeams(json.teams); 
             setNbJournee((json.teams.length*2)-2);
             isMounted.current = true;
           } );
@@ -42,11 +42,12 @@ function App() {
     }
     
   }, []);
-
+  
   return (
     <>
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <h2 className="">Liste des matchs de la journée {numJournee } </h2>
+      <h2 className="">Liste des matchs de la journée {numJournee } :</h2>
+      <DisplayEvents numJournee={numJournee}/>
     </>
   )
 }
@@ -65,11 +66,44 @@ function SearchBar({nbJournee, onChange }) {
         nbJournee = {nbJournee}
         onChange={onChange} 
       />
+      
     </div>
   </div>
 }
 
 
+/**
+ * 
+ * @param {int} numJournee 
+ * @returns 
+ */
+function DisplayEvents({numJournee}) {
+  
+  const[events, setEvents] = useState([]);
+  console.log(numJournee)
+
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const requete = "https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4423&r="+numJournee+"&s=2023-2024";
+        const response = await fetch(requete)
+        await response.json().then((json) => {
+          setEvents(json.events);
+        } );
+       
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+    fetchEvents()
+  }, [numJournee]);
+
+  console.log(events);
+
+  return <>
+  </>
+}
 
 export default App;
 
