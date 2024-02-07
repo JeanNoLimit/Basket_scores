@@ -8,13 +8,17 @@ export function Select({nbJournee, onChange }) {
         return content;
     }
 
-    return <div>
+    return <div className="position-absolute top-50 end-0 translate-middle-y me-5 form-floating" style={{ width: 230 }}>
+        
         <select 
-            className="form-select" 
+            className="form-select " 
             onChange={(e)=> onChange(e.target.value)}
-        >
-            <option defaultValue> Choisir une journée à afficher...</option>
+            id="floatingSelect"
+            >
+            <option defaultValue> Selection...</option>
             {getOptions()}
         </select>
+        <label className="" for="floatingSelect"> Selectionnez une journée : </label>
+        
     </div>
 }

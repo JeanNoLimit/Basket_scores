@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <h2 className="">Vous avez choisi d'afficher la journée : {numJournee } </h2>
+      <h2 className="">Liste des matchs de la journée {numJournee } </h2>
     </>
   )
 }
@@ -59,8 +59,8 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div>
-    <div className="mb-3">
+  return <div className="">
+    <div className="position-relative w-100" style={{ height: 80 }}>
       <Select 
         nbJournee = {nbJournee}
         onChange={onChange} 
