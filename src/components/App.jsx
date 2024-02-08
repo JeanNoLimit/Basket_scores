@@ -1,6 +1,7 @@
 import { useState ,useEffect, useRef } from 'react'
 import '../styles/App.css'
 import {Select} from './form/Select.jsx'
+import {DisplayEvents} from './DisplayEvents.jsx'
 
 
 function App() {
@@ -42,11 +43,11 @@ function App() {
     }
     
   }, []);
-  
+  console.log('render App')
   return (
     <>
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <h2 className="">Liste des matchs de la journée {numJournee } :</h2>
+      <h2 className="text-center">Résultats des matchs de la {numJournee==1?  <>{numJournee}<sup>ère</sup></> : <>{numJournee}<sup>eme</sup></>} journée  </h2>
       <DisplayEvents numJournee={numJournee}/>
     </>
   )
@@ -72,38 +73,7 @@ function SearchBar({nbJournee, onChange }) {
 }
 
 
-/**
- * 
- * @param {int} numJournee 
- * @returns 
- */
-function DisplayEvents({numJournee}) {
-  
-  const[events, setEvents] = useState([]);
-  console.log(numJournee)
 
-  useEffect(() => {
-    async function fetchEvents() {
-      try {
-        const requete = "https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4423&r="+numJournee+"&s=2023-2024";
-        const response = await fetch(requete)
-        await response.json().then((json) => {
-          setEvents(json.events);
-        } );
-       
-      }
-      catch (err) {
-        console.log(err);
-      }
-    }
-    fetchEvents()
-  }, [numJournee]);
-
-  console.log(events);
-
-  return <>
-  </>
-}
 
 export default App;
 
