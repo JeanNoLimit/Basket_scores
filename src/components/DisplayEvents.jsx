@@ -6,10 +6,9 @@ import { Card } from "./Card.jsx"
  * @param {int} numJournee 
  * @returns 
  */
-export function DisplayEvents({numJournee}) {
+export function DisplayEvents({numJournee, teams}) {
   
     const[events, setEvents] = useState([]);
-    console.log(numJournee)
   
     useEffect(() => {
       async function fetchEvents() {
@@ -25,12 +24,16 @@ export function DisplayEvents({numJournee}) {
           console.log(err);
         }
       }
+      console.log("appel API events journee:"+ numJournee)
       fetchEvents()
     }, [numJournee]);
   
     console.log(events);
     console.log("render events")
+
     return <>
-    <Card />
+      {events.map((event) => 
+        <Card event={event} teams={teams} key={event.idEvent} />
+      )}
     </>
   }

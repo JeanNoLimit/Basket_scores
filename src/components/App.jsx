@@ -48,7 +48,7 @@ function App() {
     <>
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
       <h2 className="text-center">Résultats des matchs de la {numJournee==1?  <>{numJournee}<sup>ère</sup></> : <>{numJournee}<sup>eme</sup></>} journée  </h2>
-      <DisplayEvents numJournee={numJournee}/>
+      <DisplayEvents numJournee={numJournee} teams={teams}/>
     </>
   )
 }
