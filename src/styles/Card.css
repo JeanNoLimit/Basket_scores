@@ -1,0 +1,29 @@
+.score-card {
+    width: 380px;
+}
+
+.img-banner {
+    height: 1.8rem;
+}
+
+.team-logo {
+    width: 5rem
+}
+
+.team-name {
+    font-size:12px
+}
+
+.score-container {
+    height:100px;
+}
+
+.score-display {
+    font-family: 'Teko', sans-serif;
+    font-size:40px;
+}
+
+.location-wrapper {
+    height:45px;
+    background-color:rgb(51, 51, 51)
+}

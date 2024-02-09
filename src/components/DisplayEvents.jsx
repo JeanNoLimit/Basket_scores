@@ -1,4 +1,5 @@
 import { useState ,useEffect } from 'react'
+import { Card } from "./Card.jsx"
     
 /**
  * 
@@ -30,5 +31,6 @@ export function DisplayEvents({numJournee}) {
     console.log(events);
     console.log("render events")
     return <>
+    <Card />
     </>
   }
