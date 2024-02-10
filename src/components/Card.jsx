@@ -4,16 +4,18 @@ import {Team} from "./card/Team.jsx";
 
 export function Card({event, teams}) {
     
-    const logoDomicile = teams.find(team => team.idTeam == event.idHomeTeam).strTeamBadge
-    const logoVisiteur = teams.find(team => team.idTeam == event.idAwayTeam).strTeamBadge
+    console.log("les équipes dans card...:")
+    console.log(teams)
+    const logoDomicile = teams.length>0 ? teams.find(team => team.idTeam == event.idHomeTeam).strTeamBadge : "noLogo"
+    const logoVisiteur = teams.length>0 ? teams.find(team => team.idTeam == event.idAwayTeam).strTeamBadge : "noLogo"
     
     return <>
-        <div className="card shadow border-0 rounded-5 score-card" >
+        <div className="card shadow border-0 rounded-5 score-card h-100" >
             <div className="p-3 ">
                 <LeagueInformation numJournee={event.intRound} date={event.dateEvent}/>
-                <div className="row align-items-center">
+                <div className="row align-items-center row-score">
                     <Team teamName={event.strHomeTeam} logo={logoDomicile} key={event.strHomeTeam}/>
-                    <div className="col d-flex flex-column justify-content-around align-items-center score-container">
+                    <div className="col d-flex flex-column justify-content-between align-items-center score-container">
                         <div className="score-display">
                             <span className="fw-medium">{event.intHomeScore}</span>
                             <span className="fw-medium">-</span>

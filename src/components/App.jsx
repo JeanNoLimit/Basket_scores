@@ -43,7 +43,8 @@ function App() {
     }
     
   }, []);
-  console.log('render App')
+  console.log('les équipes dans app:')
+  console.log(teams)
   return (
     <>
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
