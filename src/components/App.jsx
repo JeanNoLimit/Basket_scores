@@ -25,12 +25,10 @@ function App() {
 
         try { 
           const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=French%20LNB`)
-          await response.json().then((json) => {
-            setTeams(json.teams); 
-            setNbJournee((json.teams.length*2)-2);
-            isMounted.current = true;
-          } );
-          
+          const data = await response.json();
+          setTeams(data.teams); 
+          setNbJournee((data.teams.length*2)-2);
+          isMounted.current = true;  
         }  
         catch (error) {
           console.log(error);
