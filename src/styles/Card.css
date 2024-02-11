@@ -27,6 +27,7 @@
 }
 
 .location-wrapper {
-    height:45px;
+    height:40px;
+    font-size:0.9rem;
     background-color:rgb(51, 51, 51)
 }
