@@ -1,6 +1,14 @@
 import { useState ,useEffect } from 'react'
 import { Card } from "./Card.jsx"
-    
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+// import required modules
+import { Navigation, FreeMode } from 'swiper/modules';
+
 /**
  * 
  * @param {int} numJournee 
@@ -28,12 +36,29 @@ export function DisplayEvents({numJournee, teams}) {
       fetchEvents()
     }, [numJournee]);
   
-    console.log(events);
-    console.log("render events")
 
-    return <>
+    return <Swiper  
+    slidesPerView={"auto"}
+    navigation={true}
+    freeMode={true}
+    breakpoints={{
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+    }}
+    modules={[Navigation, FreeMode]} 
+    className="mySwiper py-5">
       {events.map((event) => 
-        <Card event={event} teams={teams} key={event.idEvent} />
+        <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
       )}
-    </>
+    </Swiper>
   }
