@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import '/src/styles/swiper.css';
 
 // import required modules
 import { Navigation, FreeMode } from 'swiper/modules';
@@ -52,11 +53,11 @@ export function DisplayEvents({numJournee, teams}) {
       },
       1024: {
         slidesPerView: 4,
-        spaceBetween: 10,
+        spaceBetween: 30,
       },
     }}
     modules={[Navigation, FreeMode]} 
-    className="mySwiper py-5">
+    className="mySwiper py-5 px-3">
       {events.map((event) => 
         <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
       )}
