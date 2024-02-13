@@ -1,0 +1,8 @@
+.events-results {
+    background-color: rgb(240, 240, 240);
+    background: linear-gradient(90deg, rgba(85,85,85,1) 0%, rgba(213,213,213,1) 54%, rgba(213,213,213,1) 100%);
+}
+
+.events-results h2 {
+    color: white;
+}

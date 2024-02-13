@@ -57,7 +57,7 @@ export function DisplayEvents({numJournee, teams}) {
       },
     }}
     modules={[Navigation, FreeMode]} 
-    className="mySwiper py-5 px-3">
+    className="mySwiper py-3 px-3">
       {events.map((event) => 
         <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
       )}

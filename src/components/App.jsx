@@ -44,11 +44,10 @@ function App() {
   console.log('les équipes dans app:')
   console.log(teams)
   return (
-    <>
+    <div className="events-results">
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <h2 className="text-center">Résultats des matchs de la {numJournee==1?  <>{numJournee}<sup>ère</sup></> : <>{numJournee}<sup>eme</sup></>} journée  </h2>
       <DisplayEvents numJournee={numJournee} teams={teams}/>
-    </>
+    </div>
   )
 }
 
@@ -60,15 +59,12 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div className="">
-    <div className="position-relative w-100" style={{ height: 80 }}>
-      <Select 
-        nbJournee = {nbJournee}
-        onChange={onChange} 
-      />
-      
-    </div>
-  </div>
+  return <div className="w-100 px-5 pt-4" >
+          <Select 
+            nbJournee = {nbJournee}
+            onChange={onChange} 
+          />
+        </div>
 }
 
 
