@@ -1,3 +1,5 @@
+
+
 export function Select({nbJournee, onChange }) {
     
     const getOptions = () => {
@@ -10,16 +12,16 @@ export function Select({nbJournee, onChange }) {
 
     return <div className="d-flex flex-row align-items-center justify-content-between">
         <h2 className="text-center ">Résultats par journée </h2>
-         <div className="mx-3 form-floating" style={{ width: 210 }}>
-                <select 
-                    className="form-select px-3" 
-                    onChange={(e)=> onChange(e.target.value)}
-                    id="floatingSelect"
-                    >
-                    {getOptions()}
-                </select>
-                <label className="" htmlFor="floatingSelect"> Selectionnez une journée : </label>
-            </div>
+        <div className="mx-3 form-floating" style={{ width: 210 }}>
+            <select 
+                className="form-select px-3" 
+                onChange={(e)=> onChange(e.target.value)}
+                id="floatingSelect"
+                >
+                {getOptions()}
+            </select>
+            <label className="" htmlFor="floatingSelect"> Selectionnez une journée : </label>
+        </div>
     </div>
     
            

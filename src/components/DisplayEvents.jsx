@@ -39,38 +39,40 @@ export function DisplayEvents({numJournee, teams}) {
   
 
     return <Swiper  
-    slidesPerView={"auto"}
-    
-    freeMode={true}
-    breakpoints={{
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 30,
-      },
-    }}
-    modules={[Navigation, FreeMode]} 
-    className="mySwiper py-3 px-3">
-      {events.map((event) => 
-        <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
-      )}
-      <div className="pt-4 px-4 text-center fs-4">
-          <SlidePrevButton />
-          <SlideNextButton />
-      </div>
-     
+              slidesPerView={"auto"}
+              
+              freeMode={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
+              }}
+              modules={[Navigation, FreeMode]} 
+              className="mySwiper pb-2 px-3"
+            >
+              {events.map((event) => 
+                <SwiperSlide>
+                  <Card event={event} teams={teams} key={event.idEvent} />
+                </SwiperSlide>
+              )}
+              <div className="pt-2 px-4 text-center fs-4">
+                  <SlidePrevButton />
+                  <SlideNextButton />
+              </div>
     </Swiper>
   }
 
 
-  function SlideNextButton() {
+  export function SlideNextButton() {
     const swiper = useSwiper();
   
     return (
@@ -78,7 +80,7 @@ export function DisplayEvents({numJournee, teams}) {
     );
   }
 
-  function SlidePrevButton() {
+  export function SlidePrevButton() {
     const swiper = useSwiper();
   
     return (

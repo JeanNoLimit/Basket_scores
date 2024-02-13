@@ -14,7 +14,7 @@ function App() {
   const [nbJournee, setNbJournee] = useState(45);
   const [numJournee, setNumJournee] = useState(1);
 
-  // console.log(numJournee)
+
   /**
    * Appel de l'API sportdb pour récupérer la liste des équipes du championnat.
    * Cela va nous permettre de connaitre le nombre de journée par saison et l'affichage du détail des équipes par la suite...
@@ -41,13 +41,17 @@ function App() {
     }
     
   }, []);
-  console.log('les équipes dans app:')
-  console.log(teams)
+
   return (
-    <div className="events-results">
+    <>
+     <div className="events-results">
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
       <DisplayEvents numJournee={numJournee} teams={teams}/>
     </div>
+    <div className="">
+        <img src="/img/basketball-background-illustration-ai-generative-min.jpg" alt="image fond d'écran basket score" className="img-fluid"/>
+    </div>
+    </>
   )
 }
 
@@ -59,7 +63,7 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div className="w-100 px-5 pt-4 pb-3" >
+  return <div className="w-100 px-5 pt-3 pb-3" >
           <Select 
             nbJournee = {nbJournee}
             onChange={onChange} 
