@@ -61,7 +61,7 @@ export function DisplayEvents({numJournee, teams}) {
       {events.map((event) => 
         <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
       )}
-      <div className="pt-4 px-4 float-end fs-4">
+      <div className="pt-4 px-4 text-center fs-4">
           <SlidePrevButton />
           <SlideNextButton />
       </div>

@@ -59,7 +59,7 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div className="w-100 px-5 pt-4" >
+  return <div className="w-100 px-5 pt-4 pb-3" >
           <Select 
             nbJournee = {nbJournee}
             onChange={onChange} 
