@@ -1,6 +1,6 @@
 import { useState ,useEffect } from 'react'
 import { Card } from "./Card.jsx"
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -40,7 +40,7 @@ export function DisplayEvents({numJournee, teams}) {
 
     return <Swiper  
     slidesPerView={"auto"}
-    navigation={true}
+    
     freeMode={true}
     breakpoints={{
       640: {
@@ -61,5 +61,27 @@ export function DisplayEvents({numJournee, teams}) {
       {events.map((event) => 
         <SwiperSlide><Card event={event} teams={teams} key={event.idEvent} /></SwiperSlide>
       )}
+      <div className="pt-4 px-4 float-end fs-4">
+          <SlidePrevButton />
+          <SlideNextButton />
+      </div>
+     
     </Swiper>
+  }
+
+
+  function SlideNextButton() {
+    const swiper = useSwiper();
+  
+    return (
+      <i onClick={() => swiper.slideNext()} className="fa-solid fa-chevron-right games-nav"></i>
+    );
+  }
+
+  function SlidePrevButton() {
+    const swiper = useSwiper();
+  
+    return (
+      <i onClick={() => swiper.slidePrev()} className="fa-solid fa-chevron-left px-5 games-nav"></i>
+    );
   }

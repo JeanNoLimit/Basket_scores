@@ -7,3 +7,11 @@
 .swiper-slide {
     max-width:380px ;
 }
+
+.games-nav {
+    color:rgb(99, 99, 99)
+}
+.games-nav:hover {
+    cursor: pointer;
+    color: black;
+}
