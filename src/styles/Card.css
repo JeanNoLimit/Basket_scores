@@ -1,6 +1,14 @@
+.card { 
+    transition: all .2s ease-in-out; 
+    }
+    
+.card:hover { 
+transform: scale(1.05); 
+}
+
+
 .score-card {
-    max-width: 380px;
-   
+    max-width: 380px; 
 }
 
 .img-banner {
