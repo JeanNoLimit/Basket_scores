@@ -60,7 +60,7 @@ export function DisplayEvents({numJournee, teams}) {
               className="mySwiper pt-3 pb-2 px-3"
             >
               {events.map((event) => 
-                <SwiperSlide>
+                <SwiperSlide key={event.idEvent}>
                   <Card event={event} teams={teams} key={event.idEvent} />
                 </SwiperSlide>
               )}
