@@ -4,12 +4,9 @@ import {Team} from "./card/Team.jsx";
 
 export function Card({event, teams}) {
     
-    console.log("les équipes dans card...:")
-    console.log(teams)
     const homeTeam = teams.length>0 ? teams.find(team => team.idTeam == event.idHomeTeam) : "noLogo"
     const awayteam = teams.length>0 ? teams.find(team => team.idTeam == event.idAwayTeam) : "noLogo"
     
-    console.log(homeTeam.strStadiumLocation);
     return <>
         <div className="card shadow border-0 rounded-5 score-card h-100" >
             <div className="p-3 ">
