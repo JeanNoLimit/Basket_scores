@@ -65,7 +65,7 @@ function SearchBar({nbJournee, onChange }) {
   
   return (
     <div className="d-flex flex-row align-items-center justify-content-between w-100 px-5 pt-3">
-      <h2 className="text-center ">Résultats par journée </h2>
+      <h2 className="text-center text-uppercase fs-4 m-0">Résultats par journée </h2>
       <Select 
         nbJournee = {nbJournee}
         onChange={onChange} 
