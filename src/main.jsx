@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/App.jsx'
+import Home from './components/Home.jsx'
 import Teams from './components/Teams.jsx'
 import ErrorPage from './error-page.jsx'
 import NavBar from './components/NavBar.jsx'
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Home />,
       },
       {
         path: "/teams",

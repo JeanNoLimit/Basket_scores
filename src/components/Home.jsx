@@ -1,10 +1,10 @@
 import { useState ,useEffect, useRef } from 'react'
-import '../styles/App.css'
+import '../styles/Home.css'
 import {Select} from './form/Select.jsx'
 import {DisplayEvents} from './DisplayEvents.jsx'
 
 
-function App() {
+function Home() {
 
   // On va récupérer le résultat de l'API dans cette variable.
   const [teams, setTeams] = useState({});
@@ -77,7 +77,7 @@ function SearchBar({nbJournee, onChange }) {
 
 
 
-export default App;
+export default Home;
 
 
 
