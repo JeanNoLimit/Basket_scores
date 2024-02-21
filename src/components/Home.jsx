@@ -1,10 +1,10 @@
 import { useState ,useEffect, useRef } from 'react'
-import '../styles/App.css'
+import '../styles/Home.css'
 import {Select} from './form/Select.jsx'
 import {DisplayEvents} from './DisplayEvents.jsx'
 
 
-function App() {
+function Home() {
 
   // On va récupérer le résultat de l'API dans cette variable.
   const [teams, setTeams] = useState({});
@@ -63,18 +63,21 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div className="w-100 px-5 pt-3" >
-          <Select 
-            nbJournee = {nbJournee}
-            onChange={onChange} 
-          />
-        </div>
+  return (
+    <div className="d-flex flex-row align-items-center justify-content-between w-100 px-5 pt-3">
+      <h2 className="text-center ">Résultats par journée </h2>
+      <Select 
+        nbJournee = {nbJournee}
+        onChange={onChange} 
+      />
+    </div>
+  )
 }
 
 
 
 
-export default App;
+export default Home;
 
 
 

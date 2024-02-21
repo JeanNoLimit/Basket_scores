@@ -38,37 +38,39 @@ export function DisplayEvents({numJournee, teams}) {
     }, [numJournee]);
   
 
-    return <Swiper  
-              slidesPerView={"auto"}
-              
-              freeMode={true}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 4,
-                  spaceBetween: 30,
-                },
-              }}
-              modules={[Navigation, FreeMode]} 
-              className="mySwiper pt-3 pb-2 px-3"
-            >
-              {events.map((event) => 
-                <SwiperSlide>
-                  <Card event={event} teams={teams} key={event.idEvent} />
-                </SwiperSlide>
-              )}
-              <div className="pt-2 px-4 text-center fs-4">
-                  <SlidePrevButton />
-                  <SlideNextButton />
-              </div>
-    </Swiper>
+    return (
+      <Swiper  
+        slidesPerView={"auto"}
+        
+        freeMode={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
+        modules={[Navigation, FreeMode]} 
+        className="mySwiper pt-3 pb-2 px-3"
+      >
+        {events.map((event) => 
+          <SwiperSlide key={event.idEvent}>
+            <Card event={event} teams={teams} key={event.idEvent} />
+          </SwiperSlide>
+        )}
+        <div className="pt-2 px-4 text-center fs-4">
+            <SlidePrevButton />
+            <SlideNextButton />
+        </div>
+      </Swiper>
+    );
   }
 
 
