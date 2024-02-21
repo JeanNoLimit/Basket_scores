@@ -2,7 +2,7 @@ import "../styles/Card.css";
 import {LeagueInformation} from "./card/LeagueInformation.jsx";
 import {Team} from "./card/Team.jsx";
 
-export function Card({event, teams}) {
+export function Card({event, teams, setEventId}) {
     
     const homeTeam = teams.length>0 ? teams.find(team => team.idTeam == event.idHomeTeam) : "noLogo"
     const awayteam = teams.length>0 ? teams.find(team => team.idTeam == event.idAwayTeam) : "noLogo"
@@ -19,7 +19,10 @@ export function Card({event, teams}) {
                             <span className="fw-medium">-</span>
                             <span className="fw-medium">{event.intAwayScore}</span>
                         </div>
-                        <button type="button" className="btn btn-outline-dark rounded-pill border border-dark border-1 fw-medium btn-sm w-100">Détails</button>
+                        <button 
+                            type="button" 
+                            className="btn btn-outline-dark rounded-pill border border-dark border-1 fw-medium btn-sm w-100"
+                            onClick={() => setEventId(event.idEvent)}>Détails</button>
                     </div>
                     <Team teamName={event.strAwayTeam} logo={awayteam.strTeamBadge} key={event.strAwayTeam}/>
                 </div>

@@ -2,7 +2,7 @@ import { useState ,useEffect, useRef } from 'react'
 import '../styles/Home.css'
 import {Select} from './form/Select.jsx'
 import {DisplayEvents} from './DisplayEvents.jsx'
-
+import {EventDetails} from './EventDetails.jsx'
 
 function Home() {
 
@@ -14,6 +14,9 @@ function Home() {
   const [nbJournee, setNbJournee] = useState(45);
   const [numJournee, setNumJournee] = useState(1);
 
+  //Pour l'affichage du détail d'un évènement
+  const[eventId, setEventId] = useState([0]);
+  const[eventSelected, setEventSelected] = useState([]);
 
   /**
    * Appel de l'API sportdb pour récupérer la liste des équipes du championnat.
@@ -46,8 +49,15 @@ function Home() {
     <>
      <div className="events-results">
       <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <DisplayEvents numJournee={numJournee} teams={teams}/>
+      <DisplayEvents 
+        numJournee={numJournee} 
+        teams={teams} 
+        eventId={eventId} 
+        setEventSelected={setEventSelected} 
+        setEventId={setEventId}
+      />
     </div>
+    <EventDetails event={eventSelected}/>
     <div className="">
         <img src="/img/basketball-background-illustration-ai-generative-min.jpg" alt="image fond d'écran basket score" className="img-fluid"/>
     </div>

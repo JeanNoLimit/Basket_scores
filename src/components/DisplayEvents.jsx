@@ -10,15 +10,12 @@ import '/src/styles/swiper.css';
 // import required modules
 import { Navigation, FreeMode } from 'swiper/modules';
 
-/**
- * 
- * @param {int} numJournee 
- * @returns 
- */
-export function DisplayEvents({numJournee, teams}) {
+
+export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSelected}) {
   
     const[events, setEvents] = useState([]);
-  
+   
+    // Appel API, récupère les évènements d'une journée
     useEffect(() => {
       async function fetchEvents() {
         try {
@@ -36,8 +33,13 @@ export function DisplayEvents({numJournee, teams}) {
       console.log("appel API events journee:"+ numJournee)
       fetchEvents()
     }, [numJournee]);
-  
 
+    //Lorsqu'on clique sur un bouton détail dans une Card, on récupère l'évènement en question pour l'afficher dans EventDetails.
+    useEffect(() => {
+      console.log(eventId);
+      setEventSelected(events.find((event) => event.idEvent === eventId));
+    },[eventId])
+   
     return (
       <Swiper  
         slidesPerView={"auto"}
@@ -62,7 +64,7 @@ export function DisplayEvents({numJournee, teams}) {
       >
         {events.map((event) => 
           <SwiperSlide key={event.idEvent}>
-            <Card event={event} teams={teams} key={event.idEvent} />
+            <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId}/>
           </SwiperSlide>
         )}
         <div className="pt-2 px-4 text-center fs-4">
