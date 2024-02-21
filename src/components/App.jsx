@@ -63,12 +63,15 @@ function App() {
  */
 function SearchBar({nbJournee, onChange }) {
   
-  return <div className="w-100 px-5 pt-3" >
-          <Select 
-            nbJournee = {nbJournee}
-            onChange={onChange} 
-          />
-        </div>
+  return (
+    <div className="d-flex flex-row align-items-center justify-content-between w-100 px-5 pt-3">
+      <h2 className="text-center ">Résultats par journée </h2>
+      <Select 
+        nbJournee = {nbJournee}
+        onChange={onChange} 
+      />
+    </div>
+  )
 }
 
 
