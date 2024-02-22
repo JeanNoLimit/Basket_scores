@@ -17,6 +17,7 @@ function Home() {
   //Pour l'affichage du détail d'un évènement
   const[eventId, setEventId] = useState([0]);
   const[eventSelected, setEventSelected] = useState([]);
+  const[isSelected, setIsSelected] = useState(false)
 
   /**
    * Appel de l'API sportdb pour récupérer la liste des équipes du championnat.
@@ -47,20 +48,21 @@ function Home() {
 
   return (
     <>
-     <div className="events-results">
-      <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
-      <DisplayEvents 
-        numJournee={numJournee} 
-        teams={teams} 
-        eventId={eventId} 
-        setEventSelected={setEventSelected} 
-        setEventId={setEventId}
-      />
-    </div>
-    <EventDetails event={eventSelected}/>
-    <div className="">
-        <img src="/img/basketball-background-illustration-ai-generative-min.jpg" alt="image fond d'écran basket score" className="img-fluid"/>
-    </div>
+      <div className="events-results">
+        <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
+        <DisplayEvents 
+          numJournee={numJournee} 
+          teams={teams} 
+          eventId={eventId} 
+          setEventSelected={setEventSelected} 
+          setEventId={setEventId}
+          setIsSelected={setIsSelected}
+        />
+      </div>
+      { isSelected && <EventDetails event={eventSelected}  teams={teams}/> }
+      <div className="">
+          <img src="/img/basketball-background-illustration-ai-generative-min.jpg" alt="image fond d'écran basket score" className="img-fluid"/>
+      </div>
     </>
   )
 }

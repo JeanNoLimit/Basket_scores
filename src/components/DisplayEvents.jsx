@@ -11,7 +11,7 @@ import '/src/styles/swiper.css';
 import { Navigation, FreeMode } from 'swiper/modules';
 
 
-export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSelected}) {
+export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSelected, setIsSelected}) {
   
     const[events, setEvents] = useState([]);
    
@@ -64,7 +64,7 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
       >
         {events.map((event) => 
           <SwiperSlide key={event.idEvent}>
-            <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId}/>
+            <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId} setIsSelected={setIsSelected}/>
           </SwiperSlide>
         )}
         <div className="pt-2 px-4 text-center fs-4">
