@@ -46,10 +46,16 @@ function Home() {
     
   }, []);
 
+  //Fonction callback permettant la fermetur du composant EventDetails. Fermeture au clique sur bouton fermé dans le composant. Fermeture en cas de changement de journée.
+  const handleModalClose = () => {
+    setIsSelected(false)
+  }
+  console.log(isSelected);
+
   return (
     <>
       <div className="events-results">
-        <SearchBar nbJournee={nbJournee} onChange={setNumJournee}/>
+        <SearchBar nbJournee={nbJournee} onChange={setNumJournee} handleModalClose={handleModalClose}/>
         <DisplayEvents 
           numJournee={numJournee} 
           teams={teams} 
@@ -59,7 +65,7 @@ function Home() {
           setIsSelected={setIsSelected}
         />
       </div>
-      { isSelected && <EventDetails event={eventSelected}  teams={teams}/> }
+      { isSelected && <EventDetails event={eventSelected} teams={teams} handleModalClose={handleModalClose}/> }
       <div className="">
           <img src="/img/basketball-background-illustration-ai-generative-min.jpg" alt="image fond d'écran basket score" className="img-fluid"/>
       </div>
@@ -73,7 +79,7 @@ function Home() {
  * @param {int} nbJournee 
  * @returns {JSX.Element} 
  */
-function SearchBar({nbJournee, onChange }) {
+function SearchBar({nbJournee, onChange,handleModalClose }) {
   
   return (
     <div className="d-flex flex-row align-items-center justify-content-between w-100 px-5 pt-3">
@@ -81,6 +87,7 @@ function SearchBar({nbJournee, onChange }) {
       <Select 
         nbJournee = {nbJournee}
         onChange={onChange} 
+        handleModalClose={handleModalClose}
       />
     </div>
   )

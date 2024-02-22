@@ -1,6 +1,6 @@
 
 
-export function Select({nbJournee, onChange }) {
+export function Select({nbJournee, onChange,handleModalClose }) {
     
     const getOptions = () => {
         let content = [];
@@ -12,10 +12,10 @@ export function Select({nbJournee, onChange }) {
 
     return (
     
-        <div className="mx-3 form-floating" style={{ width: 210 }}>
+        <div className="mx-3 form-floating" style={{ width: 210 }} onChange={handleModalClose}>
             <select 
                 className="form-select px-3" 
-                onChange={(e)=> onChange(e.target.value)}
+                onChange={(e)=> {onChange(e.target.value)}}
                 id="floatingSelect"
                 >
                 {getOptions()}

@@ -1,7 +1,7 @@
 // import { useState} from 'react'
 import '../styles/EventDetails.css';
 
-export function EventDetails({event, teams}){
+export function EventDetails({event, teams, handleModalClose}){
     console.log(event);
 
     const dateFormat = event ===undefined ? new Date() : new Date(event.dateEvent);
@@ -15,6 +15,9 @@ export function EventDetails({event, teams}){
             (
             <div className="w-100 bg-secondary bg-gradient py-4">
                 <div className="container-md mx-auto">
+                    <div>
+                        <button className="float-end btn btn-outline-dark border-0" onClick={handleModalClose}><i className="fa-solid fa-xmark"></i></button>
+                    </div>
                     <div className="text-center pb-3">
                         <h2 className="fw-bolder mb-0">{event.strEvent}</h2>
                         <p className="fw-bolder fs-4">le {dateFormat.toLocaleDateString("fr")} <span>à {timeEvent(event.strTime)}</span></p>
