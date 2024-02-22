@@ -4,10 +4,10 @@ import '../styles/EventDetails.css';
 export function EventDetails({event, teams}){
     console.log(event);
 
-    const dateFormat = new Date(event.dateEvent);
+    const dateFormat = event ===undefined ? new Date() : new Date(event.dateEvent);
 
-    const homeTeam = teams.length>0 ? teams.find(team => team.idTeam == event.idHomeTeam) : "noLogo"
-    const awayteam = teams.length>0 ? teams.find(team => team.idTeam == event.idAwayTeam) : "noLogo"
+    const homeTeam = teams.length>0 && event!== undefined ? teams.find(team => team.idTeam == event.idHomeTeam) : "noLogo"
+    const awayteam = teams.length>0 && event!== undefined ? teams.find(team => team.idTeam == event.idAwayTeam) : "noLogo"
     
     return (
         event === undefined ? 
