@@ -19,12 +19,12 @@ export function EventDetails({event, teams}){
                         <h2 className="fw-bolder mb-0">{event.strEvent}</h2>
                         <p className="fw-bolder fs-4">le {dateFormat.toLocaleDateString("fr")} <span>à {timeEvent(event.strTime)}</span></p>
                     </div>
-                    <div className="d-flex flex-row wrap w-100 justify-content-evenly align-items-center">
-                        <div className="d-flex flex-column align-items-center">
+                    <div className="row w-100">
+                        <div className="col d-flex flex-column align-items-center justify-content-center">
                             <img src={homeTeam.strTeamBadge} alt="" className="img-fluid" style={{width: 10+'rem'}} />
                             <p className="card-subtitle text-center fw-semibold pt-1 fs-3"> {event.strHomeTeam}</p>
                         </div>
-                        <div className="d-flex flex-column text-center border bg-dark border-3 rounded rounded-3 py-2 px-4">
+                        <div className="col d-flex flex-column text-center border bg-dark border-3 rounded rounded-3 py-2 px-4">
                             <div className=" d-flex flex-row justify-content-around align-items-baseline">
                                 <span className="fw-medium score" style={{fontSize:3+'rem'}}>{event.intHomeScore}</span>
                                 <span className="fw-medium text-white" style={{fontSize:2+'rem'}}>VS</span>
@@ -63,7 +63,7 @@ export function EventDetails({event, teams}){
                                 </table>
                             </div>
                         </div>
-                        <div className="d-flex flex-column align-items-center">
+                        <div className="col d-flex flex-column align-items-center justify-content-center">
                             <img src={awayteam.strTeamBadge} alt="" className="img-fluid" style={{width: 10+'rem'}} />
                             <p className="card-subtitle text-center fw-semibold pt-1 fs-3" > {event.strAwayTeam}</p>
                         </div>
