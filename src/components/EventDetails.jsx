@@ -113,16 +113,32 @@ function timeEvent(strTime) {
 function extractNumberSeries(input) {
     console.log("string en entré :",input)
     // Regex pour extraire les séries de nombres
-    const regex = /\d+/g;
+    const regex = /(?<=Quarters:<br>)\d+(?:\s\d+){3,}/g;
+    //const regex =/\d+/g;
     //On obtient un tableau des correspondances entre la chaîne et la Regex
     const matches = input.match(regex);
+    console.log("matches :", matches)
     const qHome = [];
     const qAway = [];
 
     if (matches) {
-        for (let i = 0; i < (matches.length/2); i ++) {
-            qHome.push(Number(matches[i]));
-            qAway.push(Number(matches[i+(matches.length/2) ]));
+        for (let i=0; i<matches.length; i++) {
+            console.log("match : ", matches[i])
+            const numbers = matches[i].split(" ").map(Number);
+            console.log("numbers :", numbers)
+            if(i==0){
+                for(const number of numbers){
+                    qHome.push(number);
+                }
+            }
+            if(i==1){
+                for(const number of numbers){
+                    qAway.push(number);
+                }
+            }   
+                
+
+           
         }   
     }
     
