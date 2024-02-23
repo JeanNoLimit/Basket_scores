@@ -4,3 +4,9 @@
     font-family: 'Teko', sans-serif;
     color:red!important
 }
+
+.awaitingResults {
+    font-family: 'Teko', sans-serif;
+    color:white!important;
+    font-size: 2rem;
+}
