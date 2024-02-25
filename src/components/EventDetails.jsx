@@ -61,6 +61,9 @@ export function EventDetails({event, teams, handleModalClose}){
                             <p className="card-subtitle text-center fw-semibold pt-1 fs-3" > {event.strAwayTeam}</p>
                         </div>
                     </div>
+                    <div className="d-flex flex-row align-items-baseline fw-medium justify-content-center mt-3 fs-4">
+                        <i className="fa-solid fa-location-dot"></i><p className="ps-2 m-0">{homeTeam.strStadium}, {teams.length>0 ? (homeTeam.strStadiumLocation).replace(", France", "") : "...chargement en cours..."}</p>
+                    </div>
                 </div>
             </div>
             )
@@ -70,9 +73,6 @@ export function EventDetails({event, teams, handleModalClose}){
 function QuartersDetails({result}) {
 
     const [qHome, qAway] =  result === undefined ? ["",""] :  extractNumberSeries(result)
-
-    console.log(qHome)
-    console.log(qAway)
 
     return(
         <tbody>
@@ -96,9 +96,7 @@ function QuartersDetails({result}) {
 }
 
 
-
-
-// Fonction pour afficher l'heure au format 
+// Fonction pour afficher l'heure au format 24H00
 function timeEvent(strTime) {
 
     const parts = strTime.split(":")
@@ -135,13 +133,8 @@ function extractNumberSeries(input) {
                 for(const number of numbers){
                     qAway.push(number);
                 }
-            }   
-                
-
-           
+            }
         }   
     }
-    
-
     return [qHome, qAway];
 }

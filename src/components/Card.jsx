@@ -27,11 +27,6 @@ export function Card({event, teams, setEventId, setIsSelected}) {
                     <Team teamName={event.strAwayTeam} logo={awayteam.strTeamBadge} key={event.strAwayTeam}/>
                 </div>
             </div> 
-            <div className="w-100 rounded-bottom-5 d-flex align-items-center justify-content-center location-wrapper px-3">
-                <div className="d-flex flex-row align-items-baseline text-white fw-medium">
-                    <i className="fa-solid fa-location-dot"></i><p className="ps-2 m-0">{homeTeam.strStadium}, {teams.length>0 ? (homeTeam.strStadiumLocation).replace(", France", "") : "...chargement en cours..."}</p>
-                </div>
-            </div>
         </div>
     </>
 }
