@@ -1,3 +1,7 @@
+.event-details {
+    background-color: rgb(128, 128, 128);
+}
+
 .table_custom { --bs-table-bg: transparent !important; }
 
 .score {

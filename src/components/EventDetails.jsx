@@ -13,19 +13,19 @@ export function EventDetails({event, teams, handleModalClose}){
         event === undefined ? 
             (<div>Pas de match selectionné pour l'instant </div>) : 
             (
-            <div className="w-100 bg-secondary bg-gradient py-4">
-                <div className="container-md mx-auto">
-                    <div>
-                        <button className="float-end btn btn-outline-dark border-0" onClick={handleModalClose}><i className="fa-solid fa-xmark"></i></button>
+            <div className="w-100 events-results pb-2">
+                <div className="container-md mx-auto border border-4 border-dark rounded rounded-3 py-2 event-details" >
+                    <div className="text-end">
+                        <button className="btn btn-outline-dark border-0" onClick={handleModalClose}><i className="fa-solid fa-xmark"></i></button>
                     </div>
-                    <div className="text-center pb-3">
-                        <h2 className="fw-bolder mb-0">{event.strEvent}</h2>
-                        <p className="fw-bolder fs-4">le {dateFormat.toLocaleDateString("fr")} <span>à {timeEvent(event.strTime)}</span></p>
+                    <div className="text-center pb-1">
+                        <h3 className="fw-bolder mb-0">{event.strEvent}</h3>
+                        <p className="fw-bolder fs-5">le {dateFormat.toLocaleDateString("fr")} <span>à {timeEvent(event.strTime)}</span></p>
                     </div>
                     <div className="row w-100">
                         <div className="col d-flex flex-column align-items-center justify-content-center">
-                            <img src={homeTeam.strTeamBadge} alt="" className="img-fluid" style={{width: 10+'rem'}} />
-                            <p className="card-subtitle text-center fw-semibold pt-1 fs-3"> {event.strHomeTeam}</p>
+                            <img src={homeTeam.strTeamBadge} alt="" className="img-fluid" style={{width: 8+'rem'}} />
+                            <p className="card-subtitle text-center fw-semibold pt-1 fs-4"> {event.strHomeTeam}</p>
                         </div>
                         <div className="col d-flex flex-column text-center border bg-dark border-3 rounded rounded-3 py-2 px-4 justify-content-center">
                             {event.intHomeScore && event.intAwayScore ?
@@ -57,11 +57,11 @@ export function EventDetails({event, teams, handleModalClose}){
                             )}
                         </div>
                         <div className="col d-flex flex-column align-items-center justify-content-center">
-                            <img src={awayteam.strTeamBadge} alt="" className="img-fluid" style={{width: 10+'rem'}} />
-                            <p className="card-subtitle text-center fw-semibold pt-1 fs-3" > {event.strAwayTeam}</p>
+                            <img src={awayteam.strTeamBadge} alt="" className="img-fluid" style={{width: 8+'rem'}} />
+                            <p className="card-subtitle text-center fw-semibold pt-1 fs-4" > {event.strAwayTeam}</p>
                         </div>
                     </div>
-                    <div className="d-flex flex-row align-items-baseline fw-medium justify-content-center mt-3 fs-4">
+                    <div className="d-flex flex-row align-items-baseline fw-medium justify-content-center mt-2 ">
                         <i className="fa-solid fa-location-dot"></i><p className="ps-2 m-0">{homeTeam.strStadium}, {teams.length>0 ? (homeTeam.strStadiumLocation).replace(", France", "") : "...chargement en cours..."}</p>
                     </div>
                 </div>
