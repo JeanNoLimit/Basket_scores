@@ -1,6 +1,10 @@
-import {Outlet, Link} from 'react-router-dom'
+import {Outlet, Link, useNavigation} from 'react-router-dom'
+import "../styles/loader.css"
 
 export default function NavBar() {
+
+    const navigation = useNavigation();
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-white fw-medium fs-5 text-dark text-uppercase">
@@ -22,8 +26,20 @@ export default function NavBar() {
                 </div>
             </nav>
             <div>
+                <div id="chargement" className={navigation.state === "loading" ? "loading" : ""}>
+                    <div className="contener_animation">
+                        <div align="center" syle="width:90px; height:115px;">
+                            <div className="contener_ball">
+                            <div className="ball_bleu"></div>
+                        </div>
+                            <div className="ombre_bleu"></div>
+                        </div>
+                    </div>
+                    
+                </div>
                 <Outlet />
             </div>
+          
         </>
     )
 }
