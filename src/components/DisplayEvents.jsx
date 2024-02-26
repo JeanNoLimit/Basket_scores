@@ -1,7 +1,8 @@
-import { useState ,useEffect } from 'react'
-import { Card } from "./Card.jsx"
+import { useState ,useEffect } from 'react';
+import { Card } from "./Card.jsx";
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { Loading } from './Loading.jsx'
+import { Loading } from './Loading.jsx';
+import {Select} from './form/Select.jsx';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,10 +13,11 @@ import '/src/styles/swiper.css';
 import { Navigation, FreeMode } from 'swiper/modules';
 
 
-export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSelected, setIsSelected}) {
+export function DisplayEvents({nbJournee, teams, eventId,setEventId, setEventSelected, setIsSelected, handleModalClose,}) {
   
     const[events, setEvents] = useState([]);
-    const[loading, setIsLoading] = useState(false);
+    const[loading, setIsLoading] = useState(true);
+    const [numJournee, setNumJournee] = useState(1);
     // Appel API, récupère les évènements d'une journée
     useEffect(() => {
       async function fetchEvents() {
@@ -31,7 +33,7 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
           console.log(err);
         }
         finally {
-          setIsLoading(true);
+          setIsLoading(false);
         }
       }
       console.log("appel API events journee:"+ numJournee)
@@ -46,38 +48,41 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
    
     return (
       <>
-        {loading == false && <Loading /> }
-        <Swiper  
-          slidesPerView={"auto"}
-          
-          freeMode={true}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-          }}
-          modules={[Navigation, FreeMode]} 
-          className="mySwiper pt-3 pb-2 px-3"
-        >
-          {events.map((event) => 
-            <SwiperSlide key={event.idEvent}>
-              <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId} setIsSelected={setIsSelected}/>
-            </SwiperSlide>
-          )}
-          <div className="pt-2 px-4 text-center fs-4">
-              <SlidePrevButton />
-              <SlideNextButton />
-          </div>
-        </Swiper>
+        {loading== false && <Loading /> }
+        <div className="events-results">
+          <SearchBar nbJournee={nbJournee} onChange={setNumJournee} handleModalClose={handleModalClose}/>
+          <Swiper  
+            slidesPerView={"auto"}
+            
+            freeMode={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+            }}
+            modules={[Navigation, FreeMode]} 
+            className="mySwiper pt-3 pb-2 px-3"
+          >
+            {events.map((event) => 
+              <SwiperSlide key={event.idEvent}>
+                <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId} setIsSelected={setIsSelected}/>
+              </SwiperSlide>
+            )}
+            <div className="pt-2 px-4 text-center fs-4">
+                <SlidePrevButton />
+                <SlideNextButton />
+            </div>
+          </Swiper>
+        </div>
       </>
     );
   }
@@ -98,3 +103,24 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
       <i onClick={() => swiper.slidePrev()} className="fa-solid fa-chevron-left px-5 games-nav"></i>
     );
   }
+
+
+  /**
+ * formulaire de recherche des matchs par journée.
+ * 
+ * @param {int} nbJournee 
+ * @returns {JSX.Element} 
+ */
+function SearchBar({nbJournee, onChange,handleModalClose }) {
+  
+  return (
+    <div className="d-flex flex-row align-items-center justify-content-between w-100 px-5 pt-3">
+      <h2 className="text-center text-uppercase fs-4 m-0">Résultats par journée </h2>
+      <Select 
+        nbJournee = {nbJournee}
+        onChange={onChange} 
+        handleModalClose={handleModalClose}
+      />
+    </div>
+  )
+}
