@@ -1,6 +1,7 @@
 import {
     Outlet, 
-    Link, 
+    Link,
+    NavLink, 
     useNavigation,
     useLoaderData,
 } from 'react-router-dom'
@@ -21,10 +22,10 @@ export default function NavBar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to={`/`}>Accueil</Link>
+                                <NavLink className="nav-link" aria-current="page" to={`/`}>Accueil</NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={`teams`}>Les équipes</Link>
+                                <NavLink className="nav-link" to={`teams`}>Les équipes</NavLink>
                             </li>
                         </ul>
                     </div>
