@@ -48,8 +48,9 @@ export function DisplayEvents({nbJournee, teams, eventId,setEventId, setEventSel
    
     return (
       <>
-        {loading== false && <Loading /> }
+        
         <div className="events-results">
+          {loading && <Loading /> }
           <SearchBar nbJournee={nbJournee} onChange={setNumJournee} handleModalClose={handleModalClose}/>
           <Swiper  
             slidesPerView={"auto"}

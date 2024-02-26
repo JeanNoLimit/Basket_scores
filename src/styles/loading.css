@@ -1,3 +1,4 @@
 .events-results:has(.loading_events){
-	filter: blur(10px);
+	filter: blur(15px);
+	position: relative;
 }
