@@ -4,7 +4,6 @@ import {
     useNavigation,
     useLoaderData,
 } from 'react-router-dom'
-import "../styles/loader.css"
 
 export default function NavBar() {
 
@@ -32,17 +31,6 @@ export default function NavBar() {
                 </div>
             </nav>
             <div>
-                <div id="chargement" className={navigation.state === "loading" ? "loading" : ""}>
-                    <div className="contener_animation">
-                        <div align="center" syle="width:90px; height:115px;">
-                            <div className="contener_ball">
-                            <div className="ball_bleu"></div>
-                        </div>
-                            <div className="ombre_bleu"></div>
-                        </div>
-                    </div>
-                    
-                </div>
                 <Outlet context={ teams }/>
             </div>
           

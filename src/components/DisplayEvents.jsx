@@ -1,6 +1,7 @@
 import { useState ,useEffect } from 'react'
 import { Card } from "./Card.jsx"
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Loading } from './Loading.jsx'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,7 +15,7 @@ import { Navigation, FreeMode } from 'swiper/modules';
 export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSelected, setIsSelected}) {
   
     const[events, setEvents] = useState([]);
-   
+    const[loading, setIsLoading] = useState(false);
     // Appel API, récupère les évènements d'une journée
     useEffect(() => {
       async function fetchEvents() {
@@ -29,6 +30,9 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
         catch (err) {
           console.log(err);
         }
+        finally {
+          setIsLoading(true);
+        }
       }
       console.log("appel API events journee:"+ numJournee)
       fetchEvents()
@@ -41,37 +45,40 @@ export function DisplayEvents({numJournee, teams, eventId,setEventId, setEventSe
     },[eventId])
    
     return (
-      <Swiper  
-        slidesPerView={"auto"}
-        
-        freeMode={true}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }}
-        modules={[Navigation, FreeMode]} 
-        className="mySwiper pt-3 pb-2 px-3"
-      >
-        {events.map((event) => 
-          <SwiperSlide key={event.idEvent}>
-            <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId} setIsSelected={setIsSelected}/>
-          </SwiperSlide>
-        )}
-        <div className="pt-2 px-4 text-center fs-4">
-            <SlidePrevButton />
-            <SlideNextButton />
-        </div>
-      </Swiper>
+      <>
+        {loading == false && <Loading /> }
+        <Swiper  
+          slidesPerView={"auto"}
+          
+          freeMode={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
+          modules={[Navigation, FreeMode]} 
+          className="mySwiper pt-3 pb-2 px-3"
+        >
+          {events.map((event) => 
+            <SwiperSlide key={event.idEvent}>
+              <Card event={event} teams={teams} key={event.idEvent} setEventId={setEventId} setIsSelected={setIsSelected}/>
+            </SwiperSlide>
+          )}
+          <div className="pt-2 px-4 text-center fs-4">
+              <SlidePrevButton />
+              <SlideNextButton />
+          </div>
+        </Swiper>
+      </>
     );
   }
 
