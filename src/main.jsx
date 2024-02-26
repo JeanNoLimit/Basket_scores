@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from './components/Home.jsx'
 import Teams from './components/Teams.jsx'
+import Team from './components/Team.jsx'
+import TeamsIndex from './components/TeamsIndex.jsx'
 import ErrorPage from './error-page.jsx'
 import NavBar from './components/NavBar.jsx'
 import './styles/index.css'
@@ -25,7 +27,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/teams",
-        element: <Teams />
+        element: <Teams />,
+        children: [
+          { index: true, element: <TeamsIndex />},
+          {
+            path: "/teams/:teamId",
+            element: <Team />
+          }
+        ]
       }
     ],
   }

@@ -1,4 +1,4 @@
-import { useState ,useEffect, useRef } from 'react'
+import { useState } from 'react'
 import '../styles/Home.css'
 import {DisplayEvents} from './DisplayEvents.jsx'
 import {EventDetails} from './EventDetails.jsx'
