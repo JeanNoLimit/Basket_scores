@@ -1,8 +1,14 @@
-import {Outlet, Link, useNavigation} from 'react-router-dom'
+import {
+    Outlet, 
+    Link, 
+    useNavigation,
+    useLoaderData,
+} from 'react-router-dom'
 import "../styles/loader.css"
 
 export default function NavBar() {
 
+    const { teams } = useLoaderData(); 
     const navigation = useNavigation();
 
     return (
@@ -37,7 +43,7 @@ export default function NavBar() {
                     </div>
                     
                 </div>
-                <Outlet />
+                <Outlet context={ teams }/>
             </div>
           
         </>

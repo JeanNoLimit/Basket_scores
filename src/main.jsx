@@ -15,6 +15,9 @@ const router = createBrowserRouter([
     path: "/",
     element: <NavBar/>,
     errorElement: <ErrorPage/>,
+    loader: async () => {
+      return fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=French%20LNB`)
+    },
     children: [
       {
         path: "/",
