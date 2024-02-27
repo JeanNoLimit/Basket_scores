@@ -28,7 +28,7 @@ export default function Teams() {
                                 <li className="nav-item" key={team.idTeam}>
                                     <NavLink className="nav-link link-dark" aria-current="page" to={`/teams/${team.idTeam}`}>
                                         <img src={team.strTeamBadge} alt="" style={{height: 2 + "rem"}}/>
-                                        <span className="ps-2">{team.strTeam}</span>
+                                        <span className="ps-2 fw-medium">{team.strTeam}</span>
                                     </NavLink>
                                 </li>
                                 

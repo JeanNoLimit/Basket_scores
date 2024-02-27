@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from './components/Home.jsx'
 import Teams from './components/Teams.jsx'
-import Team from './components/Team.jsx'
+import TeamDetails from './components/TeamDetails.jsx'
 import TeamsIndex from './components/TeamsIndex.jsx'
 import ErrorPage from './error-page.jsx'
 import NavBar from './components/NavBar.jsx'
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
           { index: true, element: <TeamsIndex />},
           {
             path: "/teams/:teamId",
-            element: <Team />
+            element: <TeamDetails />
           }
         ]
       }
