@@ -13,7 +13,7 @@ export default function Teams() {
     return (
        <>
        <div className="d-flex flex-row">
-            <div style={{width:280,minHeight:100 +'vh'}}>
+            <div style={{minWidth:280,minHeight:100 +'vh'}}>
                 <button className="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">filtre</button>
 
                 <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
@@ -22,7 +22,7 @@ export default function Teams() {
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body " style={{minHeight:100 +'vh'}}>
-                        <div className="d-flex flex-column flex-shrink-0 p-3 bg-light m-0">
+                        <div className="d-flex flex-column flex-shrink-0 p-3 m-0 ">
                             <ul className="nav nav-pills flex-column mb-auto">
                                 {teams.map((team) =>
                                 <li className="nav-item" key={team.idTeam}>

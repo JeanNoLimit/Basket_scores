@@ -13,7 +13,7 @@ export default function NavBar() {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-white fw-medium fs-5 text-dark text-uppercase">
+            <nav className="navbar navbar-expand-lg bg-white fw-medium fs-5 text-dark text-uppercase principal-navbar">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to={`/`}><img className="mx-3" src="/img/logo/logo_basket_score.png" alt="logo basket scores" height="55" /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
