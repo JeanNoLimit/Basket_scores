@@ -12,7 +12,7 @@ export default function Teams() {
 
     return (
        <>
-       <div className="d-flex flex-row">
+       <div className="d-flex flex-row mt-3">
             <div style={{minWidth:280,minHeight:100 +'vh'}}>
                 <button className="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">filtre</button>
 
