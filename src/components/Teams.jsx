@@ -8,7 +8,6 @@ import '../styles/teams.css'
 export default function Teams() {
     
     const teams = useOutletContext();
-    console.log(teams);
 
     return (
        <>
@@ -39,7 +38,7 @@ export default function Teams() {
                     </div>
                 </div>
             </div>
-        <Outlet />
+        <Outlet context={ teams }/>
        </div>
        
        </>

@@ -18,7 +18,8 @@ const router = createBrowserRouter([
     element: <NavBar/>,
     errorElement: <ErrorPage/>,
     loader: async () => {
-      return fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=French%20LNB`)
+      const teams = fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=French%20LNB`);
+      return teams;
     },
     children: [
       {
@@ -28,11 +29,16 @@ const router = createBrowserRouter([
       {
         path: "/teams",
         element: <Teams />,
+        
         children: [
           { index: true, element: <TeamsIndex />},
           {
             path: "/teams/:teamId",
-            element: <TeamDetails />
+            errorElement: <ErrorPage/>,
+            element: <TeamDetails />,
+            loader: ({params} ) => {
+              return params.teamId
+            }
           }
         ]
       }
