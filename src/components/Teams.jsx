@@ -11,16 +11,16 @@ export default function Teams() {
 
     return (
        <>
-       <div className="d-flex flex-row mt-3">
-            <div style={{minWidth:280,minHeight:100 +'vh'}}>
-                <button className="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">filtre</button>
-
-                <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+       <div className="d-flex flex-row flex-wrap justify-content-center mt-3">
+            <div>
+                <button className="btn btn-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Selection d'une équipe</button>
+                
+                <div className="offcanvas-lg offcanvas-start" tabIndex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel" style={{minWidth:280}}>
                     <div className="offcanvas-header">
                         <h5 className="offcanvas-title text-uppercase" id="offcanvasResponsiveLabel">Les équipes</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
                     </div>
-                    <div className="offcanvas-body " style={{minHeight:100 +'vh'}}>
+                    <div className="offcanvas-body ">
                         <div className="d-flex flex-column flex-shrink-0 p-3 m-0 ">
                             <ul className="nav nav-pills flex-column mb-auto">
                                 {teams.map((team) =>

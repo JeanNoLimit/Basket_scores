@@ -9,7 +9,7 @@ export default function TeamDetails() {
     console.log(team);
 
     return (
-        <div>
+        <div className="flex-grow-1">
             <p>ICI BIENTOT DETAIL D'EQUIPE....</p>
         </div>
     )
