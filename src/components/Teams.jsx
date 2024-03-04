@@ -11,7 +11,7 @@ export default function Teams() {
 
     return (
        <>
-       <div className="d-flex flex-row flex-wrap justify-content-center mt-3">
+       <div className="d-flex flex-row mt-3">
             <div>
                 <button className="btn btn-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Selection d'une équipe</button>
                 
