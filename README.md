@@ -1,8 +1,25 @@
-# React + Vite
+# Basket Scores
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table des matières 
 
-Currently, two official plugins are available:
+1. [Introduction](#Introduction)
+2. [Technologies](#Technologies)
+3. [Description du projet](#Description)
+5. [installation](#Installation)
+6. [Remarques](#Remarques)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
+
+Basket Scores est une application permettant de visualiser les résultats de la Première division de la Ligue National de Basket.
+Le but de cette application est de m'initier à la librairie React à travers un projet concret.
+
+## Technologies 
+
+React 18.2 + ViteJs
+Bootstrap 5.3.2.
+
+## Description du projet
+
+## Installation
+
+## Remarques et difficultés rencontrées
