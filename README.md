@@ -41,7 +41,8 @@ Un formulaire composé d'un élément **select** permet à l'utilisateur de sél
 Un bouton *détails* est présent sur chaque card permettant d'afficher un composant supplémentaire **EventDetails** sous le carrousel donnant des informations détaillées sur les matchs.
 
 
-![affichage du composant eventDetails](/annexes/Vidéo_apercu_acceuil.gif | width=100)
+![affichage du composant eventDetails](/annexes/Vidéo_apercu_acceuil.gif )
+<img src="/annexes/Vidéo_apercu_acceuil.gif" alt="affichage du composant eventDetails" width="400">
 
 ### Page équipes
 
