@@ -29,9 +29,9 @@ L'application est composée de 2 pages générées dynamiquement gràce à React
 
 Sur la page d'accueil on peut visualiser un carrousel composé de cards contenant les résultats pour chaque match classé par journée.  
 Un formulaire composé d'un élément <select> permet à l'utilisateur de sélectionner une journée à afficher. Au clique, la liste des cards est actualisé.  
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)
-![capture d'écran de l'application Basket Score, montrant le caroussel affichant les résultats des matchs par journée](/annexes/capture_ecran_accueil_carrousel.png)  
 
+![capture d'écran de l'application Basket Score, montrant le caroussel affichant les résultats des matchs par journée](/annexes/capture_ecran_accueil_carrousel.png)  
+<img src="/annexes/capture_ecran_accueil_carrousel.png">
 La liste des composants React de la page d'accueil :  
 
 ![Liste des composants React de la page d'accueil](/annexes/composants_react_accueil.jpg)  
