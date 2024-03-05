@@ -38,7 +38,7 @@ Un formulaire composé d'un élément **select** permet à l'utilisateur de sél
 
 ![Liste des composants React de la page d'accueil](/annexes/composants_react_accueil.jpg)
 
-Un bouton *détails* est présent sur chaque card permettant d'afficher un composant supplémentaire **EventDetails** sous le carrousel donnant des informations détaillées sur les matchs.
+* Un bouton *détails* est présent sur chaque card permettant d'afficher un composant supplémentaire **EventDetails** sous le carrousel donnant des informations détaillées sur les matchs.
 
 
 <img src="/annexes/Vidéo_apercu_acceuil.gif" alt="affichage du composant eventDetails" width="100%">
