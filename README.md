@@ -36,7 +36,7 @@ La liste des composants React de la page d'accueil :
 
 
 
-Un bouton est également présent sur chaque card permettant d'afficher un composant supplémentaire (<EventDetails />) sous le carrousel donnant des informations détaillés sur les matchs.
+Un bouton est également présent sur chaque card permettant d'afficher un composant supplémentaire <EventDetails /> sous le carrousel donnant des informations détaillés sur les matchs.  
 
 
 ### Page équipes
@@ -45,7 +45,7 @@ La deuxième page est composée d'une sidebar permettant de selectionner une éq
 
 
 
-##Installation
+## Installation
 
-##Remarques et difficultés rencontrée
+## Remarques et difficultés rencontrée
 
