@@ -55,10 +55,10 @@ La deuxième page est composée d'une sidebar permettant de sélectionner une é
 
 ***Basket Scores est une application en développement et uniquement dans un but éducatif. Elle ne dispose pas d'une version en production***
 
-$ git clone https://github.com/JeanNoLimit/Basket_scores.git
-$ cd Basket_scores
-$ npm install
-$ npm run dev
+$ git clone https://github.com/JeanNoLimit/Basket_scores.git  
+$ cd Basket_scores  
+$ npm install  
+$ npm run dev  
 
 
 ## Remarques, difficultés rencontrées et perspectives d'améliorations
@@ -71,7 +71,7 @@ $ npm run dev
 * Les logos récupérés ne sont disponibles qu'en version "blanc", certains ne sont donc pas visibles.  
 -> **Amélioration :** Pour améliorer l'affichage, il faudrait que je télécharge tous les logos pour me passer des badges proposés par l'API.
 
-* C'est ma première application React, il m'a fallu du temps pour appréhender cet outil. regarder des tutoriels, lire beaucoup de documentations. Certains composants ne sont pas forcement utile (ex: League Information). L'arborescence des fichiers pourrait être améliorée.
+* C'est ma première application React, il m'a fallu du temps pour appréhender cet outil. regarder des tutoriels, lire beaucoup de documentations. Certains composants ne sont pas forcement utile (ex: League Information). L'arborescence des fichiers pourrait être améliorée.  
 -> **Amélioration :** Optimiser le code
 
 * Pour l'instant, il n'existe pas de système de sauvegarde des données récupérées depuis l'API.  
