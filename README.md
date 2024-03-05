@@ -53,7 +53,7 @@ La deuxième page est composée d'une sidebar permettant de sélectionner une é
 
 ## Installation
 
-***Basket Scores est une application en développement et uniquement dans un but éducatif. Elle ne dispose pas d'une version en production***
+***Basket Scores est une application en développement et créée uniquement dans un but éducatif. Elle ne dispose pas d'une version en production***
 
 $ git clone https://github.com/JeanNoLimit/Basket_scores.git  
 $ cd Basket_scores  
