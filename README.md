@@ -27,17 +27,18 @@ L'application est composée de 2 pages générées dynamiquement gràce à React
 
 ### Page d'accueil
 
-Sur la page d'accueil on peut visualiser un carrousel composé de cards contenant les résultats pour chaque match classé par journée.                                    
+* Sur la page d'accueil on peut visualiser un carrousel composé de cards contenant les résultats pour chaque match classé par journée.                                    
 Un formulaire composé d'un élément select permet à l'utilisateur de sélectionner une journée à afficher. Au clique, la liste des cards est actualisé.                  
 
 ![capture d'écran de l'application Basket Score, montrant le caroussel affichant les résultats des matchs par journée](/annexes/capture_ecran_accueil_carrousel.png)
-<img src="/annexes/capture_ecran_accueil_carrousel.png">
 
-La liste des composants React de la page d'accueil :                              
+* La liste des composants React de la page d'accueil :
+
 
 ![Liste des composants React de la page d'accueil](/annexes/composants_react_accueil.jpg)
 
-Un bouton est également présent sur chaque card permettant d'afficher un composant supplémentaire EventDetails sous le carrousel donnant des informations détaillés sur les matchs.
+* Un bouton est également présent sur chaque card permettant d'afficher un composant supplémentaire EventDetails sous le carrousel donnant des informations détaillés sur les matchs.
+
 
 ![affichage du composant eventDetails](/annexes/affichage_composant_eventdetails.png)
 
@@ -45,7 +46,9 @@ Un bouton est également présent sur chaque card permettant d'afficher un compo
 
 La deuxième page est composée d'une sidebar permettant de selectionner une équipe et de charger les informations détaillés disponible d'un club dans le composant TeamDetails  
 
+
 ![capture d'écran de l'application Basket Score, page équipes](/annexes/capture_ecran_page_equipes.png)  
+
 
 ## Installation
 
