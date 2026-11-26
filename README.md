@@ -1,86 +1,70 @@
 # Basket Scores
 
-## Table des matières 
+Application React qui affiche les résultats et les équipes de la Betclic Élite (LNB, première division française de basket), à partir de l'API publique [TheSportsDB](https://www.thesportsdb.com/).
 
-1. [Introduction](#Introduction)
-2. [Outils utilisés](#Outils)
-3. [Description du projet](#Description)
-5. [installation](#Installation)
-6. [Remarques](#Remarques)
-7. [Ressources](#Ressources)
+C'est le projet qui m'a servi à **apprendre React** en 2024, après ma formation : un support d'exercice concret plutôt qu'un produit fini. J'utilise aujourd'hui React en entreprise.
 
-## Introduction
+## Stack technique
 
-Basket Scores est une application permettant de visualiser les résultats de la première division de la LNB.  
-Le but de cette application est de m'initier à la librairie React à travers un projet concret.  
-Les données sont récupérées grâce à l'API TheSportsDB dans sa version gratuite.  
+<p align="left">
+  <img src="https://go-skill-icons.vercel.app/api/icons?i=react,reactrouter,vite,javascript,bootstrap,css,eslint&theme=dark" alt="React, React Router, Vite, JavaScript, Bootstrap, CSS, ESLint" />
+</p>
 
-## Outils utilisés 
+- **React 18** et **Vite**
+- **React Router 6** : routes imbriquées, `loader` pour charger les données, page d'erreur
+- **Bootstrap 5** et **Swiper** (carrousel)
+- **API REST** : TheSportsDB, version gratuite
 
-React 18.2 + ViteJs  
-React Router 6.22.1  
-Bootstrap 5.3.2.  
-API : [The Sports DB](https://www.thesportsdb.com/)  
+## Ce que j'ai appris avec ce projet
 
-## Description du projet
+- Découper une interface en composants réutilisables et leur passer des données (props)
+- Gérer l'état et les effets avec `useState`, `useEffect` et `useRef`
+- Appeler une API REST de façon asynchrone et gérer l'état de chargement
+- Structurer la navigation avec React Router : routes imbriquées (`Outlet`), routes dynamiques (`/teams/:teamId`), chargement des données par `loader` et `useLoaderData`, gestion des erreurs avec `errorElement`
 
-L'application est composée de 2 pages générées dynamiquement grâce à React Router.
+## Aperçu
 
-### Page d'accueil
+### Résultats par journée
 
-* Sur la page d'accueil, on peut visualiser un carrousel composé de cards contenant les résultats pour chaque match classé par journée.  
-Un formulaire composé d'un élément **select** permet à l'utilisateur de sélectionner une journée à afficher. A chaque clique, la liste des **cards** est actualisé.                  
+Un carrousel affiche les matchs de la journée choisie dans une liste déroulante. Le bouton *Détails* d'une carte affiche le détail du match sous le carrousel.
 
-![capture d'écran de l'application Basket Score, montrant le caroussel affichant les résultats des matchs par journée](/annexes/capture_ecran_accueil_carrousel.png)
+![Page d'accueil : carrousel des résultats d'une journée](annexes/capture_ecran_accueil_carrousel.png)
 
-* La liste des composants React de la page d'accueil :
+<img src="annexes/Vidéo_apercu_acceuil.gif" alt="Affichage du détail d'un match" width="100%">
 
+Découpage de la page d'accueil en composants :
 
-![Liste des composants React de la page d'accueil](/annexes/composants_react_accueil.jpg)
+![Composants React de la page d'accueil](annexes/composants_react_accueil.jpg)
 
-* Un bouton *détails* est présent sur chaque card permettant d'afficher un composant supplémentaire **EventDetails** sous le carrousel donnant des informations détaillées sur les matchs.
+### Équipes
 
+Une barre latérale liste les clubs. Un clic charge la fiche du club, avec une URL propre à chaque équipe.
 
-<img src="/annexes/Vidéo_apercu_acceuil.gif" alt="affichage du composant eventDetails" width="100%">
+![Page équipes : liste des clubs et fiche d'un club](annexes/capture_ecran_page_equipes.png)
 
-### Page équipes
+## Limites et pistes d'amélioration
 
-La deuxième page est composée d'une sidebar permettant de sélectionner une équipe et de charger les informations détaillées disponibles d'un club dans le composant **TeamDetails**  
+Je voulais aller plus loin : statistiques et graphiques par équipe, classement, fiches joueurs. Je n'ai pas trouvé d'API gratuite assez complète pour le basket français. TheSportsDB ne donne les résultats que journée par journée, sans classement ni statistiques détaillées.
 
+Avec le recul, je ferais évoluer le projet ainsi :
+- passer par une API plus complète (payante), ou construire mes propres données
+- mettre en cache les réponses de l'API pour limiter les requêtes
+- héberger les logos des clubs : l'API ne fournit que des versions blanches, peu lisibles sur fond clair
+- réorganiser l'arborescence des fichiers et retirer les composants inutiles
 
-![capture d'écran de l'application Basket Score, page équipes](/annexes/capture_ecran_page_equipes.png)  
+## Lancer le projet en local
 
+Prérequis : Node.js 18+.
 
-## Installation
+```bash
+git clone https://github.com/JeanNoLimit/Basket_scores.git
+cd Basket_scores
+npm install
+npm run dev
+```
 
-***Basket Scores est une application en développement et créée uniquement dans un but éducatif. Elle ne dispose pas d'une version en production***
+## Ressources
 
-$ git clone https://github.com/JeanNoLimit/Basket_scores.git  
-$ cd Basket_scores  
-$ npm install  
-$ npm run dev  
-
-
-## Remarques, difficultés rencontrées et perspectives d'améliorations
-
-* La première difficulté rencontrée a été de trouver une API de résultats sportifs gratuite permettant d'effectuer suffisamment de requêtes sans être bloqué. Je me suis tourné vers l'API theSportDB car cette API dispose d'une version gratuite intéressante permettant d'effectuer jusqu'à 100 requêtes par minute.
-
-* Les données disponibles depuis cette API sont plutôt limitées. La recherche des résultats ne peut s'effectuer que par journée et le classement des équipes n'est pas disponible. Dans la version initiale du projet, j'imaginais pouvoir récupérer plus de statistiques sur les équipes, me permettant ainsi d'afficher des graphiques à l'aide de la bibliothèque Char.js.  
--> **Amélioration :** Pour améliorer cet aspect, il faudrait trouver une API plus complète, mais payante. 
-
-* Les logos récupérés ne sont disponibles qu'en version "blanc", certains ne sont donc pas visibles.  
--> **Amélioration :** Pour améliorer l'affichage, il faudrait que je télécharge tous les logos pour me passer des badges proposés par l'API.
-
-* C'est ma première application React, il m'a fallu du temps pour appréhender cet outil. regarder des tutoriels, lire beaucoup de documentations. Certains composants ne sont pas forcement utile (ex: League Information). L'arborescence des fichiers pourrait être améliorée.  
--> **Amélioration :** Optimiser le code
-
-* Pour l'instant, il n'existe pas de système de sauvegarde des données récupérées depuis l'API.  
--> **Amélioration :** Sauvegarder les données dans le LocalStorage. 
-
-## Ressources 
-
-* Documentation [React](https://react.dev/)  
-* Cours OpenClassromms : [Débutez avec React](https://openclassrooms.com/fr/courses/7008001-debutez-avec-react), [Développez une application React complète](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete)  
-* Tutoriel [React Router](https://reactrouter.com/en/main/start/tutorial) + documentation
-* Tutoriels [grafikart](https://grafikart.fr/tutoriels/introduction-react-1312)
-* Documentation [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- Documentation [React](https://react.dev/) et [React Router](https://reactrouter.com/)
+- OpenClassrooms : [Débutez avec React](https://openclassrooms.com/fr/courses/7008001-debutez-avec-react), [Créez une application React complète](https://openclassrooms.com/fr/courses/7150606-creez-une-application-react-complete)
+- Tutoriels [Grafikart](https://grafikart.fr/tutoriels/introduction-react-1312)
